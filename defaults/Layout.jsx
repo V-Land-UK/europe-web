@@ -73,23 +73,23 @@ const Layout = ({ children, title, desc, keywords, image }) => {
         <link rel="shortcut icon" href="favicon.ico" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://v-land.co.uk" />
+        <meta property="og:url" content="https://www.v-landeurope.com" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={desc} />
         <meta property="og:image" content={image} />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://v-land.co.uk" />
+        <meta property="twitter:url" content="https://www.v-landeurope.com" />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={desc} />
         <meta property="twitter:image" content={image} />
 
-        <meta property="og:site_name" content="Frikax" />
-        <meta property="og:site" content="https://v-land.co.uk" />
+        <meta property="og:site_name" content="V-Land" />
+        <meta property="og:site" content="https://www.v-landeurope.com" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={desc} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://v-land.co.uk" />
+        <meta property="og:url" content="https://www.v-landeurope.com" />
         <title>{title}</title>
       </Head>
 
@@ -236,16 +236,16 @@ const Layout = ({ children, title, desc, keywords, image }) => {
               </Link>
 
               <div className="flex py-3 space-x-4">
-                <Icon url="http://instagramm.com/vlanduk">
+                <Icon url="http://instagram.com/vlandeurope">
                   <FaInstagram size={13} />
                 </Icon>
-                <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
+                <Icon url="https://www.facebook.com/V-Land-EUROPE-100137252369546">
                   <FaFacebookF size={13} />
                 </Icon>
-                <Icon url="https://twitter.com/vlandukmag">
+                <Icon url="https://twitter.com/vlandeuropemag">
                   <FaTwitter size={13} />
                 </Icon>
-                <Icon url="https://www.linkedin.com/company/v-land-uk">
+                <Icon url="https://www.linkedin.com/company/v-land-europe">
                   <FaLinkedinIn size={13} />
                 </Icon>
               </div>
@@ -260,9 +260,9 @@ const Layout = ({ children, title, desc, keywords, image }) => {
 export default Layout;
 
 Layout.defaultProps = {
-  title: "V-Land UK",
+  title: "V-Land Europe",
   page: "Home",
   image: "Logo.JPG",
-  keywords: "vland, vegan, uk, green, nutritional, v-l, v-land, v",
-  desc: "🇬🇧 Your UK Vegan Magazine ✨ News | Entertainment | And more 📌 ",
+  keywords: "vland, vegan, europe, green, nutritional, v-l, v-land, v",
+  desc: "🇬🇧 Your European Vegan Magazine ✨ News | Entertainment | And more 📌 ",
 };

@@ -10,7 +10,7 @@ const About = ({ about }) => {
   return (
     <Layout
       title="About Us"
-      desc="V-Land UK was founded with a passion for advocating the many benefits of living a vegan lifestyle, and sharing that passion with readers worldwide.
+      desc="V-Land Europe was founded with a passion for advocating the many benefits of living a vegan lifestyle, and sharing that passion with readers worldwide.
     "
     >
       <Back />

@@ -23,7 +23,7 @@ const Team = ({ excerpt, team }) => {
   return (
     <Layout
       title="Meet The Team"
-      desc="The V-Land UK team are a bunch of like-minded vegan writers, bloggers, influencers, designers etc who are dedicated to bringing you the best vegan content from around the UK"
+      desc="The V-Land Europe team are a bunch of like-minded vegan writers, bloggers, influencers, designers etc who are dedicated to bringing you the best vegan content from around the UK"
     >
       <Back />
       <main className="mt-4">

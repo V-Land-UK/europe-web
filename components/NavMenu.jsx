@@ -59,7 +59,7 @@ const NavMenu = () => {
               <div className="grid grid-cols-4 h-min gap-4 mt-3 cursor-pointer">
                 <div className="w-min aspect-square p-2 text-white bg-primary hover:scale-95 rounded-full transition-all">
                   <a
-                    href="http://instagramm.com/vlanduk"
+                    href="http://instagram.com/vlanduk"
                     target="_blank"
                     rel="noreferrer noopener"
                   >

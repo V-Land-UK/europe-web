@@ -65,7 +65,7 @@ const Footer = () => {
             />
 
             <div className="flex gap-2 lg:gap-2">
-              <Icon url="http://instagramm.com/vlanduk">
+              <Icon url="http://instagram.com/vlanduk">
                 <FaInstagram size={13} />
               </Icon>
               <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
