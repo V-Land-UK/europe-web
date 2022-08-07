@@ -3,25 +3,12 @@ import { useRouter } from "next/router";
 import Pagination from "../../components/Pagination";
 import ArticleCard from "../../components/ArticleCard";
 import Layout from "../../defaults/Layout";
-<<<<<<< HEAD
-import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-const qs = require("qs");
-import { API } from "../../config/api";
-import { PAGINATION_LIMIT } from "../../config/meta";
-import Back from "../../components/Back";
-import { BiSearch } from "react-icons/bi";
-import { Result } from "postcss";
-import Loader from "../../components/Loader";
-import Recommendation from "../../components/Recommendation";
-=======
 const qs = require("qs");
 import { PAGINATION_LIMIT } from "../../config/meta";
 import Back from "../../components/Back";
 import { BiSearch } from "react-icons/bi";
 import Loader from "../../components/Loader";
 import request from "../../utils/request.util";
->>>>>>> uk-v2/main
 
 const Search = () => {
   const router = useRouter();
@@ -31,15 +18,6 @@ const Search = () => {
   const [stringQuery, setStringQuery] = useState("");
   const [Loading, setLoading] = useState(false);
 
-<<<<<<< HEAD
-  //Get query from router
-  const { query } = router;
-  const { q, page } = query;
-
-  //Stringify query
-  const { q: string } = qs.parse(query);
-
-=======
   //  Get query from router
   const { query } = router;
   const { q, page } = query;
@@ -102,7 +80,6 @@ const Search = () => {
     }
   };
 
->>>>>>> uk-v2/main
   //Handle query change
   const handleChange = (e) => {
     const queryFilter = qs.stringify({ q: e.target.value, page: "1" });
@@ -111,102 +88,20 @@ const Search = () => {
       pathname: "/search",
       query: queryFilter,
     });
-<<<<<<< HEAD
-
-    //Filters
-    const filters = `filters[$or][0][description][$containsi]=${q}&filters[$or][1][content][$containsi]=${q}&filters[$or][2][title][$containsi]=${q}&populate=*&pagination[pageSize]=${PAGINATION_LIMIT}&pagination[page]=${
-      page || "1"
-    }`;
-
-    //Set loading state to true
-    setLoading(true);
-
-    axios
-      .get(`${API}/articles?${filters}`)
-      .then((res) => {
-        // console.log("lOading");
-        setResults(res.data.data);
-        console.log(res.data.meta);
-        setMeta(res.data.meta);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-        toast.error("Something went wrong", options);
-      });
-  };
-
-  //Toast options
-  const options = {
-    position: "top-right",
-    autoClose: 4000,
-    draggable: true,
-    pauseOnHover: true,
-    closeOnClick: true,
-  };
-
-  //   //If query changes
-=======
     ///// Live Search From Strapi /////
     searchFunc();
   };
 
   //   If query changes
->>>>>>> uk-v2/main
   useEffect(() => {
     setStringQuery(string);
   }, [q]);
 
-<<<<<<< HEAD
-  useEffect(() => {
-    //Get data for external query
-    //Filters
-    const filters = `filters[$or][0][description][$containsi]=${q}&filters[$or][1][content][$containsi]=${q}&filters[$or][2][title][$containsi]=${q}&populate=*&pagination[pageSize]=${PAGINATION_LIMIT}&pagination[page]=${
-      page || "1"
-    }`;
-
-    //Set loading state to true
-    setLoading(true);
-
-    axios
-      .get(`${API}/articles?${filters}`)
-      .then((res) => {
-        // console.log("lOading");
-        setResults(res.data.data);
-        console.log(res.data.meta);
-        setMeta(res.data.meta);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-        toast.error("Something went wrong", options);
-      });
-  }, []);
-
-  //Sort articles that match query
-  //   useEffect(() => {
-  //     if (q) {
-  //       const filtered = All.filter((article) => {
-  //         if (
-  //           article.attributes.title.toLowerCase().includes(q.toLowerCase()) ||
-  //           article.attributes.content.toLowerCase().includes(q.toLowerCase()) ||
-  //           article.attributes.description.toLowerCase().includes(q.toLowerCase())
-  //         ) {
-  //           return true;
-  //         }
-  //       });
-  //       setResults(filtered);
-  //       //   console.log(filtered);
-  //     }
-  //   }, [All, q, page]);
-
-=======
   //   On page load
   useEffect(() => {
     searchFunc();
   }, []);
 
->>>>>>> uk-v2/main
   return (
     <Layout>
       <div className="flex flex-row-reverse border-[1px] border-primary justify-between rounded-3xl overflow-hidden px-1 py-1 mb-3">
@@ -236,11 +131,7 @@ const Search = () => {
             <>
               <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-5 lg:gap-y-6">
                 {Results.map((article, index) => (
-<<<<<<< HEAD
-                  <Recommendation article={article} key={index} />
-=======
                   <ArticleCard article={article} key={index} />
->>>>>>> uk-v2/main
                 ))}
               </div>
 
@@ -262,10 +153,6 @@ const Search = () => {
           )}
         </>
       )}
-<<<<<<< HEAD
-      <ToastContainer />
-=======
->>>>>>> uk-v2/main
     </Layout>
   );
 };
