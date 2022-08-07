@@ -6,7 +6,7 @@ const Icon = ({ url, children, className }) => {
       <div
         className={
           className ||
-          "w-max aspect-square p-2 text-white bg-primary rounded-md hover:scale-95"
+          "w-max aspect-square p-2 text-white bg-primary rounded-full hover:scale-95"
         }
       >
         {children}

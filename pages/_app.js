@@ -14,11 +14,11 @@ Router.events.on("routeChangeComplete", nProgress.done);
 
 function MyApp({ Component, pageProps }) {
   return (
-    <GlobalProvider>
-      <ChakraProvider>
+    <ChakraProvider>
+      <GlobalProvider>
         <Component {...pageProps} />
-      </ChakraProvider>
-    </GlobalProvider>
+      </GlobalProvider>
+    </ChakraProvider>
   );
 }
 

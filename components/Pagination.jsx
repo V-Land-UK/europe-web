@@ -13,7 +13,8 @@ const Pagination = ({ meta, min, prefix }) => {
 
   //Page navigation url and data
   var metaLink = `/${prefix}page=`;
-  const { query: currentRoute } = router;
+  let { query: currentRoute } = router;
+  currentRoute.page = currentRoute?.page || 1;
 
   //Default style
   const defaultStyle =
@@ -25,7 +26,7 @@ const Pagination = ({ meta, min, prefix }) => {
         <div className="flex items-center justify-center gap-3 py-1 mt-10 lg:mt-16">
           {parseInt(currentRoute?.page) > parseInt(pageArray[0]) && (
             <Link href={metaLink + (parseInt(currentRoute?.page) - 1)} passHref>
-              <div>
+              <div className="cursor-pointer">
                 <HiOutlineChevronLeft />
               </div>
             </Link>
@@ -77,7 +78,7 @@ const Pagination = ({ meta, min, prefix }) => {
           {parseInt(currentRoute?.page) <
             parseInt(pageArray[pageArray.length - 1]) && (
             <Link href={metaLink + (parseInt(currentRoute?.page) + 1)} passHref>
-              <div>
+              <div className="cursor-pointer">
                 <HiOutlineChevronRight />
               </div>
             </Link>

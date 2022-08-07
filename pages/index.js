@@ -25,6 +25,7 @@ export default function Home({ articles, meta, ads }) {
     }
   };
 
+  // grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[10px] lg:gap-5 lg:gap-y-6
   const getAdsIndex = (index) => {
     return (index + 1) / articlesBeforeAd - 1;
   };
@@ -33,16 +34,14 @@ export default function Home({ articles, meta, ads }) {
     <Layout>
       {articles.length > 0 ? (
         <>
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[10px] lg:gap-5 lg:gap-y-6">
+          {/* <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-[10px] lg:gap-5 lg:gap-y-6 "> */}
+          <div className="grid xs:grid-cols-1 gap-5 sm:grid-cols-2 gap-5 md:grid-cols-3 gap-5 lg:grid-cols-3 gap-5 xl:grid-cols-4 gap-5 2xl:grid-cols-5 gap-5">
             {articles?.map((article, index) => (
               <Fragment key={index}>
                 <ArticleCard article={article} index={index} />
                 {/* Show Ads */}
                 {ads.length > 0 && checkAds(index) && (
-                  <Ads
-                    ad={ads[getAdsIndex(index)]}
-                    hey={ads[getAdsIndex(index)]}
-                  />
+                  <Ads ad={ads[getAdsIndex(index)]} />
                 )}
               </Fragment>
             ))}
@@ -74,7 +73,7 @@ export async function getServerSideProps({ req, res, query }) {
         pageSize: PAGINATION_LIMIT,
         page: page || "1",
       },
-      // sort: ["publishedAt:desc"],
+      sort: ["PublishDate:desc"],
     },
     { encodeValuesOnly: true }
   );
