@@ -17,7 +17,7 @@ export default function Categories({ articles, meta, category }) {
       {articles ? (
         <>
           {/* <h1 className="text-3xl lg:text-5xl mb-4 lg:mb-5">{Title}</h1> */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-5 lg:gap-y-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 lg:gap-5 lg:gap-y-6">
             {articles.map((article, index) => (
               <ArticleCard article={article} key={index} />
             ))}

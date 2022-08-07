@@ -58,11 +58,13 @@ const Footer = () => {
         {/* Sitemap */}
         <div className="flex justify-center items-center lg:gap-5">
           <div className="flex flex-col items-center justify-center px-4 gap-4 lg:gap-3">
-            <img
-              src="/Header.svg"
-              alt="Header"
-              className="h-9 lg:h-12 object-contain"
-            />
+            <Link href={"/"} replace>
+              <img
+                src="/Header.svg"
+                alt="Header"
+                className="h-9 lg:h-12 object-contain"
+              />
+            </Link>
 
             <div className="flex gap-2 lg:gap-2">
               <Icon url="http://instagram.com/vlanduk">
@@ -129,15 +131,15 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center text-[10px] font-medium lg:font-medium poppins mt-10 lg:mt-12">
-        &copy;{year} V-Land UK. All rights reserved. Built by{" "}
-        <a
+        &copy;{year} V-Land UK. All rights reserved.{" "}
+        {/* <a
           href="https://twitter.com/trulyao"
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary hover:text-primary hover:underline font-semibold"
         >
           Ayodeji
-        </a>
+        </a> */}
       </div>
       <ToastContainer />
     </footer>

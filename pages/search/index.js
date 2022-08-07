@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Pagination from "../../components/Pagination";
 import ArticleCard from "../../components/ArticleCard";
 import Layout from "../../defaults/Layout";
+<<<<<<< HEAD
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 const qs = require("qs");
@@ -13,6 +14,14 @@ import { BiSearch } from "react-icons/bi";
 import { Result } from "postcss";
 import Loader from "../../components/Loader";
 import Recommendation from "../../components/Recommendation";
+=======
+const qs = require("qs");
+import { PAGINATION_LIMIT } from "../../config/meta";
+import Back from "../../components/Back";
+import { BiSearch } from "react-icons/bi";
+import Loader from "../../components/Loader";
+import request from "../../utils/request.util";
+>>>>>>> uk-v2/main
 
 const Search = () => {
   const router = useRouter();
@@ -22,6 +31,7 @@ const Search = () => {
   const [stringQuery, setStringQuery] = useState("");
   const [Loading, setLoading] = useState(false);
 
+<<<<<<< HEAD
   //Get query from router
   const { query } = router;
   const { q, page } = query;
@@ -29,6 +39,70 @@ const Search = () => {
   //Stringify query
   const { q: string } = qs.parse(query);
 
+=======
+  //  Get query from router
+  const { query } = router;
+  const { q, page } = query;
+
+  //  Stringify query
+  const { q: string } = qs.parse(query);
+
+  //  Search function
+  const searchFunc = () => {
+    ///// Live Search From Strapi /////
+    const filters = qs.stringify(
+      {
+        populate: "*",
+        filters: {
+          $or: [
+            {
+              title: {
+                $contains: q,
+              },
+            },
+            {
+              content: {
+                $contains: q,
+              },
+            },
+            {
+              description: {
+                $contains: q,
+              },
+            },
+          ],
+        },
+        pagination: {
+          pageSize: PAGINATION_LIMIT,
+          page: page || "1",
+        },
+        sort: ["PublishDate:desc"],
+      },
+      {
+        encodeValuesOnly: true,
+      }
+    );
+
+    if (q) {
+      setLoading(true);
+
+      request
+        .get(`/articles?${filters}`)
+        .then(({ data }) => {
+          setResults(data?.data);
+          setMeta(data?.meta);
+          // console.log(data?.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  };
+
+>>>>>>> uk-v2/main
   //Handle query change
   const handleChange = (e) => {
     const queryFilter = qs.stringify({ q: e.target.value, page: "1" });
@@ -37,6 +111,7 @@ const Search = () => {
       pathname: "/search",
       query: queryFilter,
     });
+<<<<<<< HEAD
 
     //Filters
     const filters = `filters[$or][0][description][$containsi]=${q}&filters[$or][1][content][$containsi]=${q}&filters[$or][2][title][$containsi]=${q}&populate=*&pagination[pageSize]=${PAGINATION_LIMIT}&pagination[page]=${
@@ -71,10 +146,18 @@ const Search = () => {
   };
 
   //   //If query changes
+=======
+    ///// Live Search From Strapi /////
+    searchFunc();
+  };
+
+  //   If query changes
+>>>>>>> uk-v2/main
   useEffect(() => {
     setStringQuery(string);
   }, [q]);
 
+<<<<<<< HEAD
   useEffect(() => {
     //Get data for external query
     //Filters
@@ -117,6 +200,13 @@ const Search = () => {
   //     }
   //   }, [All, q, page]);
 
+=======
+  //   On page load
+  useEffect(() => {
+    searchFunc();
+  }, []);
+
+>>>>>>> uk-v2/main
   return (
     <Layout>
       <div className="flex flex-row-reverse border-[1px] border-primary justify-between rounded-3xl overflow-hidden px-1 py-1 mb-3">
@@ -146,7 +236,11 @@ const Search = () => {
             <>
               <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-5 lg:gap-y-6">
                 {Results.map((article, index) => (
+<<<<<<< HEAD
                   <Recommendation article={article} key={index} />
+=======
+                  <ArticleCard article={article} key={index} />
+>>>>>>> uk-v2/main
                 ))}
               </div>
 
@@ -168,7 +262,10 @@ const Search = () => {
           )}
         </>
       )}
+<<<<<<< HEAD
       <ToastContainer />
+=======
+>>>>>>> uk-v2/main
     </Layout>
   );
 };
