@@ -130,7 +130,12 @@ const Layout = ({
             className="h-[8vh] lg:h-[9vh] py-[1.8vh] lg:py-[1.5vh] cursor-pointer"
             onClick={() => router.push("/")}
           >
-            <img src="/Header.svg" alt="Header" className="h-full" />
+            <img
+              src="/Header.png"
+              style={{ width: 170, height: 70 }}
+              alt="Header"
+              className="h-full"
+            />
           </div>
           <div className="lg:hidden">
             <Hamburger color="#000" rounded size={30} toggle={toggleDrawer} />
