@@ -267,9 +267,6 @@ const Layout = ({
                 <Icon url="http://instagram.com/vlanduk">
                   <FaInstagram size={13} />
                 </Icon>
-                {/* <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
-                  <FaFacebookF size={13} />
-                </Icon> */}
                 <Icon url="https://twitter.com/vlandukmag">
                   <FaTwitter size={13} />
                 </Icon>
