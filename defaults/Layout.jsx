@@ -267,9 +267,9 @@ const Layout = ({
                 <Icon url="http://instagram.com/vlanduk">
                   <FaInstagram size={13} />
                 </Icon>
-                <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
+                {/* <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
                   <FaFacebookF size={13} />
-                </Icon>
+                </Icon> */}
                 <Icon url="https://twitter.com/vlandukmag">
                   <FaTwitter size={13} />
                 </Icon>
@@ -288,7 +288,7 @@ const Layout = ({
 export default Layout;
 
 Layout.defaultProps = {
-  title: "V-Land UK",
+  title: "V-Land Europe",
   page: "Home",
   image: "Logo.JPG",
   keywords: "vland, vegan, uk, green, nutritional, v-l, v-land, v",
