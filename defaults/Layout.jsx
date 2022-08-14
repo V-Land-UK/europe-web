@@ -127,15 +127,11 @@ const Layout = ({
             <NavMenu />
           </div>
           <div
+            style={{ backgroundColor: "white", marginTop: 0, marginBottom: 0 }}
             className="h-[8vh] lg:h-[9vh] py-[1.8vh] lg:py-[1.5vh] cursor-pointer"
             onClick={() => router.push("/")}
           >
-            <img
-              src="/Header.png"
-              style={{ width: 170, height: 70 }}
-              alt="Header"
-              className="h-full"
-            />
+            <img src="/Header-svg.svg" alt="Header" className="h-full" />
           </div>
           <div className="lg:hidden">
             <Hamburger color="#000" rounded size={30} toggle={toggleDrawer} />
@@ -208,7 +204,7 @@ const Layout = ({
       {/* NAVIGATION DRAWER */}
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent style={{ backgroundColor: "#eeffee" }}>
+        <DrawerContent style={{ backgroundColor: "white" }}>
           <DrawerCloseButton _focus={{ border: "none" }} />
           <DrawerHeader>
             <Box
@@ -264,16 +260,13 @@ const Layout = ({
               </Link>
 
               <div className="flex py-3 space-x-4">
-                <Icon url="http://instagram.com/vlanduk">
+                <Icon url="http://instagram.com/vlandeurope">
                   <FaInstagram size={13} />
                 </Icon>
-                <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
-                  <FaFacebookF size={13} />
-                </Icon>
-                <Icon url="https://twitter.com/vlandukmag">
+                <Icon url="https://twitter.com/vlandeuropemag">
                   <FaTwitter size={13} />
                 </Icon>
-                <Icon url="https://www.linkedin.com/company/v-land-uk">
+                <Icon url="https://www.linkedin.com/m/company/v-land-europe-%E2%93%A5/">
                   <FaLinkedinIn size={13} />
                 </Icon>
               </div>
@@ -288,7 +281,7 @@ const Layout = ({
 export default Layout;
 
 Layout.defaultProps = {
-  title: "V-Land UK",
+  title: "V-Land Europe",
   page: "Home",
   image: "Logo.JPG",
   keywords: "vland, vegan, uk, green, nutritional, v-l, v-land, v",

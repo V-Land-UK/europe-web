@@ -60,24 +60,20 @@ const Footer = () => {
           <div className="flex flex-col items-center justify-center px-4 gap-4 lg:gap-3">
             <Link href={"/"} replace>
               <img
-                src="/Header.png"
+                src="/Header-svg.svg"
                 alt="Header"
                 className="h-9 lg:h-12 object-contain"
-                style={{ width: 170, height: 70 }}
               />
             </Link>
 
-            <div className="flex gap-2 lg:gap-2">
-              <Icon url="http://instagram.com/vlanduk">
+            <div className="flex gap-2 lg:gap-2 pr-5">
+              <Icon url="http://instagram.com/vlandeurope">
                 <FaInstagram size={13} />
               </Icon>
-              <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
-                <FaFacebookF size={13} />
-              </Icon>
-              <Icon url="https://twitter.com/vlandukmag">
+              <Icon url="https://twitter.com/vlandeuropemag">
                 <FaTwitter size={13} />
               </Icon>
-              <Icon url="https://www.linkedin.com/company/v-land-uk">
+              <Icon url="https://www.linkedin.com/m/company/v-land-europe-%E2%93%A5/">
                 <FaLinkedinIn size={13} />
               </Icon>
             </div>
