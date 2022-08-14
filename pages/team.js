@@ -35,7 +35,9 @@ const Team = ({ excerpt, team }) => {
     >
       <Back />
       <main className="mt-4">
-        <h1 className="text-4xl lg:text-5xl font-[900] text-primary">Team</h1>
+        <h1 className="text-3xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7">
+          Team
+        </h1>
         <h2 className="text-sm font-medium lg:text-[16px] leading-relaxed poppins mt-4 px-1">
           {parse(excerpt)}
         </h2>
