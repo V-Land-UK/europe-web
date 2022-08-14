@@ -73,7 +73,7 @@ const Team = ({ excerpt, team }) => {
                     </div>
 
                     <div className="flex flex-col space-y-2">
-                      <h1 className="text-[28px] lg:text-5xl text-primary font-[900] leading-tight">
+                      <h1 className="text-2xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7">
                         {staff?.attributes?.name || "Staff"}
                       </h1>
                       <p className="text-xs lg:text-xl font-light poppins">
