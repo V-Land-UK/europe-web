@@ -208,7 +208,7 @@ const Layout = ({
       {/* NAVIGATION DRAWER */}
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent style={{ backgroundColor: "#eeffee" }}>
+        <DrawerContent style={{ backgroundColor: "white" }}>
           <DrawerCloseButton _focus={{ border: "none" }} />
           <DrawerHeader>
             <Box
