@@ -55,7 +55,7 @@ const NavMenu = () => {
                 </div>
               </Link>
               <br />
-              <h3 className="font-medium">Follow Us:</h3>
+              <h3 className="font-medium">Follow us:</h3>
               <div className="flex py-1 space-x-4">
                 <Icon url="http://instagram.com/vlanduk">
                   <FaInstagram size={18} />
