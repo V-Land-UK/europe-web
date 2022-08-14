@@ -60,9 +60,6 @@ const NavMenu = () => {
                 <Icon url="http://instagram.com/vlanduk">
                   <FaInstagram size={18} />
                 </Icon>
-                <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
-                  <FaFacebookF size={18} />
-                </Icon>
                 <Icon url="https://twitter.com/vlandukmag">
                   <FaTwitter size={18} />
                 </Icon>
