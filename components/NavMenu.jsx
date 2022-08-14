@@ -35,7 +35,7 @@ const NavMenu = () => {
             size="lg"
             _focus={{ border: "none" }}
           />
-          <DrawerBody className="bg-green-50">
+          <DrawerBody className="bg-white">
             <div className="flex flex-col text-base font-bold gap-y-3 px-2 mt-32">
               <Link href="/about">
                 <div className="hover:text-primary hover:translate-x-3  text-2xl cursor-pointer transition-all">
