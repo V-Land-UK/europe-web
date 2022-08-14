@@ -215,7 +215,7 @@ const Layout = ({
               onClick={() => router.push("/")}
             >
               <Link href={"/"} replace>
-                <img src="/Header.svg" alt="Header" className="w-full" />
+                <img src="/Header-svg.svg" alt="Header" className="w-full" />
               </Link>
             </Box>
             <div className="bg-white flex border-[1px] border-neutral-800 justify-between rounded-3xl overflow-hidden px-1 py-1">
@@ -266,7 +266,7 @@ const Layout = ({
                 <Icon url="https://twitter.com/vlandeuropemag">
                   <FaTwitter size={13} />
                 </Icon>
-                <Icon url="https://www.linkedin.com/m/company/v-land-europe-%E2%93%A5/">
+                <Icon url="https://www.linkedin.com/company/v-land-europe-%E2%93%A5/">
                   <FaLinkedinIn size={13} />
                 </Icon>
               </div>
