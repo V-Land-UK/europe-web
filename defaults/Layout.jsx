@@ -266,7 +266,7 @@ const Layout = ({
                 <Icon url="https://twitter.com/vlandeuropemag">
                   <FaTwitter size={13} />
                 </Icon>
-                <Icon url="https://www.linkedin.com/m/company/v-land-europe-%E2%93%A5/">
+                <Icon url="https://www.linkedin.com/company/v-land-europe-%E2%93%A5/">
                   <FaLinkedinIn size={13} />
                 </Icon>
               </div>

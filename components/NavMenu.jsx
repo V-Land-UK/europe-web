@@ -57,13 +57,13 @@ const NavMenu = () => {
               <br />
               <h3 className="font-medium">Follow us:</h3>
               <div className="flex py-1 space-x-4">
-                <Icon url="http://instagram.com/vlanduk">
+                <Icon url="http://instagram.com/vlandeurope">
                   <FaInstagram size={18} />
                 </Icon>
-                <Icon url="https://twitter.com/vlandukmag">
+                <Icon url="https://twitter.com/vlandeuropemag">
                   <FaTwitter size={18} />
                 </Icon>
-                <Icon url="https://www.linkedin.com/company/v-land-uk">
+                <Icon url="https://www.linkedin.com/company/v-land-europe-%E2%93%A5/">
                   <FaLinkedinIn size={18} />
                 </Icon>
               </div>
