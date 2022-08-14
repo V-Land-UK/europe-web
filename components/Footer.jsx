@@ -68,13 +68,13 @@ const Footer = () => {
             </Link>
 
             <div className="flex gap-2 lg:gap-2 pr-5">
-              <Icon url="http://instagram.com/vlanduk">
+              <Icon url="http://instagram.com/vlandeurope">
                 <FaInstagram size={13} />
               </Icon>
-              <Icon url="https://twitter.com/vlandukmag">
+              <Icon url="https://twitter.com/vlandeuropemag">
                 <FaTwitter size={13} />
               </Icon>
-              <Icon url="https://www.linkedin.com/company/v-land-uk">
+              <Icon url="https://www.linkedin.com/m/company/v-land-europe-%E2%93%A5/">
                 <FaLinkedinIn size={13} />
               </Icon>
             </div>
