@@ -102,6 +102,11 @@ a {
   color: rgb(90, 90, 90);
 }
 
+.h_full{
+  height: calc(45px * 1.5);
+  width: calc(98px * 1.5)
+}
+
 .sponsored .article-date {
   color: white;
 }
