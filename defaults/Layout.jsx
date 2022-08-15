@@ -281,7 +281,7 @@ const Layout = ({
 export default Layout;
 
 Layout.defaultProps = {
-  title: "V-Land europe",
+  title: "V-Land Europe",
   page: "Home",
   image: "Logo.JPG",
   keywords: "vland, vegan, europe, green, nutritional, v-l, v-land, v",
