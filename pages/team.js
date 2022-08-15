@@ -35,7 +35,9 @@ const Team = ({ excerpt, team }) => {
     >
       <Back />
       <main className="mt-4">
-        <h1 className="text-4xl lg:text-5xl font-[900] text-primary">Team</h1>
+        <h1 className="text-3xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7">
+          Team
+        </h1>
         <h2 className="text-sm font-medium lg:text-[16px] leading-relaxed poppins mt-4 px-1">
           {parse(excerpt)}
         </h2>
@@ -71,7 +73,7 @@ const Team = ({ excerpt, team }) => {
                     </div>
 
                     <div className="flex flex-col space-y-2">
-                      <h1 className="text-[28px] lg:text-5xl text-primary font-[900] leading-tight">
+                      <h1 className="text-2xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7">
                         {staff?.attributes?.name || "Staff"}
                       </h1>
                       <p className="text-xs lg:text-xl font-light poppins">
@@ -151,7 +153,7 @@ const Team = ({ excerpt, team }) => {
                     </div>
                     <div className="w-[65%]">
                       <div className="flex flex-col ">
-                        <h1 className="text-[28px] lg:text-5xl text-primary font-[900] leading-tight">
+                        <h1 className="text-3xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7">
                           {staff?.attributes?.name || "Staff"}
                         </h1>
                         <p className="text-xs lg:text-xl font-light poppins">

@@ -35,7 +35,7 @@ const NavMenu = () => {
             size="lg"
             _focus={{ border: "none" }}
           />
-          <DrawerBody className="bg-green-50">
+          <DrawerBody className="bg-white">
             <div className="flex flex-col text-base font-bold gap-y-3 px-2 mt-32">
               <Link href="/about">
                 <div className="hover:text-primary hover:translate-x-3  text-2xl cursor-pointer transition-all">
@@ -55,18 +55,15 @@ const NavMenu = () => {
                 </div>
               </Link>
               <br />
-              <h3 className="font-medium">Follow Us:</h3>
+              <h3 className="font-medium">Follow us:</h3>
               <div className="flex py-1 space-x-4">
-                <Icon url="http://instagram.com/vlanduk">
+                <Icon url="http://instagram.com/vlandeurope">
                   <FaInstagram size={18} />
                 </Icon>
-                <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
-                  <FaFacebookF size={18} />
-                </Icon>
-                <Icon url="https://twitter.com/vlandukmag">
+                <Icon url="https://twitter.com/vlandeuropemag">
                   <FaTwitter size={18} />
                 </Icon>
-                <Icon url="https://www.linkedin.com/company/v-land-uk">
+                <Icon url="https://www.linkedin.com/company/v-land-europe-%E2%93%A5/">
                   <FaLinkedinIn size={18} />
                 </Icon>
               </div>

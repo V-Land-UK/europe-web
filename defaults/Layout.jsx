@@ -127,6 +127,7 @@ const Layout = ({
             <NavMenu />
           </div>
           <div
+            style={{ backgroundColor: "white", marginTop: 0, marginBottom: 0 }}
             className="h-[8vh] lg:h-[9vh] py-[1.8vh] lg:py-[1.5vh] cursor-pointer"
             onClick={() => router.push("/")}
           >
@@ -203,7 +204,7 @@ const Layout = ({
       {/* NAVIGATION DRAWER */}
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent style={{ backgroundColor: "#eeffee" }}>
+        <DrawerContent style={{ backgroundColor: "white" }}>
           <DrawerCloseButton _focus={{ border: "none" }} />
           <DrawerHeader>
             <Box
@@ -214,7 +215,7 @@ const Layout = ({
               onClick={() => router.push("/")}
             >
               <Link href={"/"} replace>
-                <img src="/Header.svg" alt="Header" className="w-full" />
+                <img src="/Header-svg.svg" alt="Header" className="w-full" />
               </Link>
             </Box>
             <div className="bg-white flex border-[1px] border-neutral-800 justify-between rounded-3xl overflow-hidden px-1 py-1">
@@ -259,16 +260,13 @@ const Layout = ({
               </Link>
 
               <div className="flex py-3 space-x-4">
-                <Icon url="http://instagram.com/vlanduk">
+                <Icon url="http://instagram.com/vlandeurope">
                   <FaInstagram size={13} />
                 </Icon>
-                <Icon url="https://www.facebook.com/V-Land-UK-100137252369546">
-                  <FaFacebookF size={13} />
-                </Icon>
-                <Icon url="https://twitter.com/vlandukmag">
+                <Icon url="https://twitter.com/vlandeuropemag">
                   <FaTwitter size={13} />
                 </Icon>
-                <Icon url="https://www.linkedin.com/company/v-land-uk">
+                <Icon url="https://www.linkedin.com/company/v-land-europe-%E2%93%A5/">
                   <FaLinkedinIn size={13} />
                 </Icon>
               </div>
