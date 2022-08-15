@@ -101,23 +101,23 @@ const Layout = ({
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://v-landuk.com" />
+        <meta property="og:url" content="https://v-landeurope.com" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={desc} />
         <meta property="og:image" content={image} />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://v-landuk.com" />
+        <meta property="twitter:url" content="https://v-landeurope.com" />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={desc} />
         <meta property="twitter:image" content={image} />
 
         <meta property="og:site_name" content="V-Land" />
-        <meta property="og:site" content="https://v-landuk.com" />
+        <meta property="og:site" content="https://v-landeurope.com" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={desc} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://v-landuk.com" />
+        <meta property="og:url" content="https://v-landeurope.com" />
         <title>{title}</title>
       </Head>
 
@@ -130,7 +130,7 @@ const Layout = ({
             className="h-[8vh] lg:h-[9vh] py-[1.8vh] lg:py-[1.5vh] cursor-pointer"
             onClick={() => router.push("/")}
           >
-            <img src="/Header.svg" alt="Header" className="h-full" />
+            <img src="/Header-svg.svg" alt="Header" className="h-full" />
           </div>
           <div className="lg:hidden">
             <Hamburger color="#000" rounded size={30} toggle={toggleDrawer} />
@@ -283,9 +283,9 @@ const Layout = ({
 export default Layout;
 
 Layout.defaultProps = {
-  title: "V-Land UK",
+  title: "V-Land europe",
   page: "Home",
   image: "Logo.JPG",
-  keywords: "vland, vegan, uk, green, nutritional, v-l, v-land, v",
-  desc: "🇬🇧 Your UK Vegan Magazine ✨ News | Entertainment | And more 📌 ",
+  keywords: "vland, vegan, europe, green, nutritional, v-l, v-land, v",
+  desc: " Your EU Vegan Magazine ✨ News | Entertainment | And more 📌 ",
 };
