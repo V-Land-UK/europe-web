@@ -299,7 +299,7 @@ const Article = ({ article }) => {
                 </motion.div>
               </AnimateSharedLayout>
             </section>
-            {/*<section className="col-span-12">
+            <section className="col-span-12">
               <h1 className="text-2xl lg:text-3xl text-primary text-center font-[800] mt-2 px-2">
                 Read More
               </h1>
@@ -310,7 +310,7 @@ const Article = ({ article }) => {
                   ))}
                 </Slider>
               </div>
-            </section>*/}
+            </section>
           </main>
         ) : (
           <div className="h-[50vh] w-full flex flex-col items-center justify-center">
