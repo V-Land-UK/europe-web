@@ -35,6 +35,7 @@ import Recommendation from "../../components/Recommendation";
 import Slider from "react-slick";
 import request from "../../utils/request.util";
 
+
 const Article = ({ article }) => {
   const router = useRouter();
   
