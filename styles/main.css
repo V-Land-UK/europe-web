@@ -351,6 +351,9 @@ a {
     /* margin-bottom: 0.5rem;
   margin-inline: 0.4rem; */
   }
+  ol,ul {
+    list-style: disc inside;
+  }
   .article-author-data {
     display: flex;
     flex-direction: column;
