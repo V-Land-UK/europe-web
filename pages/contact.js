@@ -15,16 +15,16 @@ const Contact = () => {
         </h1>
         If you are a business, event, public relations, or organization you can
         submit a story for consideration. Please send your pitch and press
-        release to contact@v-land.co.uk.
+        release to contact@v-landmagazine.com.
         <h1 className="text-2xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7 mb-1">
           Advertising
         </h1>
         For more information about advertising on our website and our social
-        media accounts, email advertising@v-land.co.uk.
+        media accounts, email advertising@v-landmagazine.com.
         <h1 className="text-2xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7 mb-1">
           General Comments and Questions
         </h1>
-        Comments and questions? Send an email to contact@v-land.co.uk.
+        Comments and questions? Send an email to contact@v-landmagazine.com.
       </main>
     </Layout>
   );
