@@ -102,9 +102,9 @@ a {
   color: rgb(90, 90, 90);
 }
 
-.h_full{
+.h_full {
   height: calc(45px * 1.5);
-  width: calc(98px * 1.5)
+  width: calc(98px * 1.5);
 }
 
 .sponsored .article-date {
@@ -121,22 +121,18 @@ a {
   font-family: "Poppins", "Segoe UI", Tahoma !important;
   line-height: 1.45;
   padding-inline: 0.5rem;
-  padding-top: .5rem;
-  overflow-x:hidden;
-  
-  
+  padding-top: 0.5rem;
+  overflow-x: hidden;
 }
-.article-preview p:nth-child(1)::first-letter{
+.article-preview p:nth-child(1)::first-letter {
   color: var(--primary);
   font-size: 6rem;
   font-weight: 900;
   float: left;
   line-height: 0.45;
-  
+
   margin: 0.1em 0.1em 0.2em 0;
-
 }
-
 
 .article-preview h5 {
   /* font-size: 14px;
@@ -217,6 +213,25 @@ a {
 /* .article-title:hover::before {
   transform: scaleX(1);
 } */
+
+.email_txt {
+  position: relative;
+  color: black;
+  font-weight: bold;
+  white-space: nowrap;
+  padding-bottom: 2px;
+}
+.email_txt:after {
+  content: attr(data-content);
+  position: absolute;
+  color: #000;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-color: #50ba4c;
+  opacity: 0.8;
+}
 
 .tag {
   font-family: "Poppins", Arial, Helvetica, sans-serif !important;
@@ -351,7 +366,8 @@ a {
     /* margin-bottom: 0.5rem;
   margin-inline: 0.4rem; */
   }
-  ol,ul {
+  ol,
+  ul {
     list-style: disc inside;
   }
   .article-author-data {
