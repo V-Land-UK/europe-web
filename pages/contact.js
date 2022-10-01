@@ -16,8 +16,8 @@ const Contact = () => {
         If you are a business, event, public relations, or organization you can
         submit a story for consideration. Please send your pitch and press
         release to{" "}
-        <a href="mailto:contact@v-landmagazine.com" className="email_txt">
-          contact@v-landmagazine.com
+        <a href="mailto:press@v-landmagazine.com" className="email_txt">
+          press@v-landmagazine.com
         </a>
         .
         <h1 className="text-2xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7 mb-1">
