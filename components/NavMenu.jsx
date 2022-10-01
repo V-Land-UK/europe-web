@@ -37,6 +37,12 @@ const NavMenu = () => {
           />
           <DrawerBody className="bg-white">
             <div className="flex flex-col text-base font-bold gap-y-3 px-2 mt-32">
+              <Link href="/">
+                <div className="hover:text-primary hover:translate-x-3  text-2xl cursor-pointer transition-all">
+                  Home
+                </div>
+              </Link>
+
               <Link href="/about">
                 <div className="hover:text-primary hover:translate-x-3  text-2xl cursor-pointer transition-all">
                   About
@@ -54,6 +60,13 @@ const NavMenu = () => {
                   Contact
                 </div>
               </Link>
+
+              <Link href="https://www.v-landuk.com/">
+                <div className="hover:text-primary hover:translate-x-3  text-2xl cursor-pointer transition-all">
+                  V-Land UK
+                </div>
+              </Link>
+
               <br />
               <h3 className="font-medium">Follow us:</h3>
               <div className="flex py-1 space-x-4">
