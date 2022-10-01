@@ -17,23 +17,26 @@ const Contact = () => {
         submit a story for consideration. Please send your pitch and press
         release to{" "}
         <a href="mailto:contact@v-landmagazine.com" className="email_txt">
-          contact@v-landmagazine.com.
+          contact@v-landmagazine.com
         </a>
+        .
         <h1 className="text-2xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7 mb-1">
           Advertising
         </h1>
         For more information about advertising on our website and our social
         media accounts, email{" "}
         <a href="mailto:advertising@v-landmagazine.com" className="email_txt">
-          advertising@v-landmagazine.com.
+          advertising@v-landmagazine.com
         </a>
+        .
         <h1 className="text-2xl lg:text-3xl text-primary font-bold mt-4 lg:mt-7 mb-1">
           General Comments and Questions
         </h1>
         Comments and questions? Send an email to{" "}
         <a href="mailto:contact@v-landmagazine.com" className="email_txt">
-          contact@v-landmagazine.com.
+          contact@v-landmagazine.com
         </a>
+        .
       </main>
     </Layout>
   );
