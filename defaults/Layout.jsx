@@ -259,7 +259,16 @@ const Layout = ({
                 </div>
               </Link>
 
-              <div className="flex py-3 space-x-4">
+              <Link href="https://www.v-landuk.com/">
+                <div className="hover:text-primary hover:translate-x-3 transition-all">
+                  V-Land UK
+                </div>
+              </Link>
+
+              <br />
+              <h3 className="text-black text-[12px]">Follow us:</h3>
+
+              <div className="flex space-x-4">
                 <Icon url="http://instagram.com/vlandeurope">
                   <FaInstagram size={13} />
                 </Icon>
