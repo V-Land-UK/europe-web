@@ -18,6 +18,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
   TelegramShareButton,
+  LinkedinShareButton,
 } from "react-share";
 import {
   FaFacebookF,
@@ -25,6 +26,7 @@ import {
   FaTelegramPlane,
   FaTwitter,
   FaWhatsapp,
+  FaLinkedin,
 } from "react-icons/fa";
 import { RiShareBoxFill } from "react-icons/ri";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
@@ -38,8 +40,6 @@ import request from "../../utils/request.util";
 
 const Article = ({ article }) => {
   const router = useRouter();
-  
-  
 
   const imageInText = article?.attributes?.content.replace(
     "<img",
@@ -101,19 +101,30 @@ const Article = ({ article }) => {
     <Layout
       title={article?.attributes?.title || "Page Not Found!"}
       desc={
+        article?.attributes?.seo?.metaDescription ||
         article?.attributes?.description ||
-        article?.attributes?.content ||
         "This page does not exist yet."
       }
       keywords={
+        article?.attributes?.seo?.keywords ||
         article?.attributes?.keywords ||
         "vland, magazine, article, vegan, v-land, uk, brazil, veggy"
       }
       image={
+        article?.attributes?.seo?.metaImge?.data?.attributes?.url ||
         article?.attributes?.media?.data[0]?.attributes?.formats?.medium?.url
       }
-      metaTitle={article?.attributes?.SEO ? article?.attributes?.SEO[0]?.metaTitle: ''}
-      metaDescription={article?.attributes?.SEO? article?.attributes?.SEO[0]?.metaDescription: ''}
+      metaTitle={
+        article?.attributes?.seo ? article?.attributes?.seo?.metaTitle : ""
+      }
+      metaDescription={
+        article?.attributes?.seo
+          ? article?.attributes?.seo?.metaDescription
+          : ""
+      }
+      canonicalUrl={
+        article?.attributes?.seo ? article?.attributes?.seo?.canonicalURL : null
+      }
     >
       <div className="w-[94%] lg:w-4/5 2xl:w-3/4 mx-auto mt-[17vh] lg:mt-[18vh]">
         <Back />
@@ -148,11 +159,11 @@ const Article = ({ article }) => {
                       (category, current) => (
                         <p
                           key={current}
-                          className={`text-[11px] lg:text-[12px] font-bold  px-2 py-1 rounded-2xl drop-shadow-md cursor-pointer hover:bg-primary hover:text-white hover:scale-95 transition-all tag ${
+                          className={`text-[11px] lg:text-[12px] font-bold  px-2 py-1 rounded-2xl drop-shadow-md cursor-pointer hover:bg-white hover:text-primary hover:scale-95 transition-all tag ${
                             category.attributes.name.toLowerCase() ===
                             "sponsored"
-                              ? "text-white bg-green-800"
-                              : "text-primary bg-green-50"
+                              ? "text-white bg-primary"
+                              : "text-white bg-primary"
                           }`}
                           onClick={() =>
                             router.push(`/category/${category.attributes.slug}`)
@@ -281,6 +292,12 @@ const Article = ({ article }) => {
                         >
                           <FaTwitter size={18} />
                         </TwitterShareButton>
+                        <LinkedinShareButton
+                          title={Title}
+                          url={`${SITE_URL}/article/${Slug}`}
+                        >
+                          <FaLinkedin size={18} />
+                        </LinkedinShareButton>
                         <WhatsappShareButton
                           url={`${SITE_URL}/article/${Slug}`}
                           title={Title}
@@ -336,27 +353,24 @@ export async function getStaticPaths() {
   return { paths, fallback: "blocking" };
 }
 
-export async function getStaticProps({params, preview=null}) {
+export async function getStaticProps({ params, preview = null }) {
   const { slug } = params;
-  
+
   const filter = qs.stringify({
     filters: {
       slug: {
         $eq: slug,
-
       },
-      
     },
     populate: "*",
   });
 
-
   // const query = await fetch(`${API}/articles?${filter}`);
   // const data = await query.json();
 
-  const { data } = preview ? await request.get(`/articles?${filter}&publicationState=preview`): await request.get(`/articles?${filter}`);
-
- 
+  const { data } = preview
+    ? await request.get(`/articles?${filter}&publicationState=preview`)
+    : await request.get(`/articles?${filter}`);
 
   // return {
   //   props: {
@@ -366,7 +380,6 @@ export async function getStaticProps({params, preview=null}) {
   //     revalidate: 10, // In seconds
   //   },
   // };
-
 
   if (data?.data?.length > 0) {
     return {

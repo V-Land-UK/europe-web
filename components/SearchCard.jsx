@@ -17,73 +17,20 @@ const SearchCard = ({ Query, setQuery }) => {
   const [Loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const currentQuery = Query.toLowerCase();
-    // if (Query) {
-    //   const filtered = Articles.filter((article) => {
-    //     if (
-    //       article?.attributes?.title
-    //         ?.toLowerCase()
-    //         ?.includes(Query?.toLowerCase()) ||
-    //       article?.attributes?.content
-    //         ?.toLowerCase()
-    //         ?.includes(Query?.toLowerCase()) ||
-    //       article?.attributes?.description
-    //         ?.toLowerCase()
-    //         ?.includes(Query?.toLowerCase())
-    //     ) {
-    //       return true;
-    //     }
-    //   });
-    //   setResult(filtered);
-    //   //   console.log(filtered);
-    // }
+    setLoading(true);
 
-    ///// Live Search From Strapi /////
-    const filters = qs.stringify(
-      {
-        populate: "*",
-        filters: {
-          $or: [
-            {
-              title: {
-                $contains: currentQuery,
-              },
-            },
-            {
-              content: {
-                $contains: currentQuery,
-              },
-            },
-            {
-              description: {
-                $contains: currentQuery,
-              },
-            },
-          ],
-        },
-        sort: ["PublishDate:desc"],
-      },
-      {
-        encodeValuesOnly: true,
-      }
-    );
-
-    if (Query) {
-      setLoading(true);
-
-      request
-        .get(`/articles?${filters}`)
-        .then(({ data }) => {
-          setResult(data?.data);
-          // console.log(data?.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
+    request
+      .get(`/articles?populate=%2A&filters[title][$containsi]=${Query}`)
+      .then(({ data }) => {
+        setResult(data?.data);
+        // console.log(data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [Query]);
 
   //Search query

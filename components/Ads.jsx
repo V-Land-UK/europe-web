@@ -5,13 +5,13 @@ const Ads = ({ ad }) => {
   return (
     <>
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
-        className="relative w-full flex flex-col items-center justify-center hover:scale-[0.98] transition-all rounded-2xl overflow-hidden"
+        className={`relative w-full flex flex-col  adCard__${ad?.attributes?.size} items-center justify-center hover:scale-[0.98] transition-all rounded-2xl overflow-hidden`}
       >
-        <p className="absolute bottom-2 left-2 bg-green-800 text-white text-[10px] font-semibold rounded-2xl px-3 py-1 drop-shadow-sm">
+        <p className="absolute bottom-2 left-2 bg-green-800 text-white text-[10px] font-bold rounded-2xl px-3 py-1 drop-shadow-sm tag">
           Advertisement
         </p>
         <a
