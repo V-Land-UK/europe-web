@@ -148,7 +148,7 @@ const Layout = ({
           </div>
           <Link href="/" passHref>
             <a className=" no-underline block relative h-[8vh] lg:h-[9vh] py-[1.8vh] lg:py-[1.5vh] cursor-pointer">
-              <img src="/Header.svg" alt="Header" className="h-full" />
+              <img src="/Header-svg.svg" alt="Header" className="h-full" />
             </a>
           </Link>
           <div className="lg:hidden">
