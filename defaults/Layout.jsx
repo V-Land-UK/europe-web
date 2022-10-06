@@ -312,5 +312,5 @@ Layout.defaultProps = {
   page: "Home",
   image: "Logo.JPG",
   keywords: "vland, vegan, europe, green, nutritional, v-l, v-land, v",
-  desc: " Your EU Vegan Magazine ✨ News | Entertainment | And more 📌 ",
+  desc: "Your European vegan magazine",
 };
