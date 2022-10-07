@@ -120,7 +120,6 @@ const Layout = ({
         <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="touch-icon-iphone-retina.png"/>
         <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="touch-icon-ipad-retina.png"/>
         
-
         <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={metaTitle || title} />
         <meta property="og:description" content={metaDescription || desc} />
