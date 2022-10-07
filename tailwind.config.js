@@ -1,5 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
@@ -8,9 +7,9 @@ module.exports = {
     "./defaults/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    screens:{
-      "xxs": "280px",
-      "xs": "321px",
+    screens: {
+      xxs: "280px",
+      xs: "321px",
       ...defaultTheme.screens,
     },
     extend: {
@@ -19,5 +18,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
