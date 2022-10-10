@@ -8,11 +8,11 @@ import { API } from "../config/api";
 import { PAGINATION_LIMIT } from "../config/meta";
 import Ads from "../components/Ads";
 import { min } from "moment";
-import useFetch from "../hooks/useFetch.js";
 import Preloader from "../components/Preloader";
 import { data } from "autoprefixer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const qs = require("qs");
 
@@ -20,26 +20,50 @@ export default function Home({ articles, meta, ads }) {
   
   
 
-  const [page,setPage] = useState(meta.pagination.page + 1);
+  const page = useRef(meta.pagination.page);
+  const [loading,setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [hasMore,setHasMore] = useState(meta.pagination.pageCount > meta.pagination.page);
+  const [queriesSent, setQueriesSent] = useState(0);
   
-  const {loading,Articles,error, hasMore,queriesSent} = useFetch(page);
   
   const ref = useRef();
   
 
 
   
-  const handleObserver = useCallback((node)=>{
+  const handleClick = useCallback(async()=>{
     if(loading || error)return;
     
-    setPage(prev => prev + 1);
-    
+    page.current += 1;
+    const filters = qs.stringify({
+      populate:"*",
+      pagination:{
+        page: page.current,
+        pageSize: PAGINATION_LIMIT,
+      },
+      sort: ['PublishDate:desc']
+    }, {encodeValuesOnly:true} );
+    setLoading(true);
 
+    const fetchedArticles = await axios
+                                    .get(`${API}/articles?${filters}`)
+                                    .then((data)=>{
+                                      return data?.data;
+                                    })
+                                    .catch((err)=>{
+                                      setLoading(false);
+                                      setError(err);
+                                      return null;
+                                    });
     
-    
-    
+    if(fetchedArticles){
+      setHasMore(meta.pagination.pageCount > page.current);
+      articles.push(...fetchedArticles.data);
+      setQueriesSent(prev => prev + 1);
+      setLoading(false);
 
-
+    }
   });
 
 
@@ -47,19 +71,9 @@ export default function Home({ articles, meta, ads }) {
   useEffect(()=>{
     
     
-    if(hasMore){
-      ref.current.style.maxHeight  = `${ref.current.clientHeight*(page)}px`;
-    }
-    else{
+    if(!hasMore){
       ref.current.classList.remove("hasMore");
     }
-    
-    Articles.length && articles.push(...Articles);
-    
-    
-
-
-
   }, [queriesSent])
 
   
@@ -125,7 +139,7 @@ export default function Home({ articles, meta, ads }) {
           </div>
           {hasMore && (
             <div className="block w-[100%] h-[8rem] text-center bg-gradient-to-t from-white">
-                <button aria-label="load more articles" className={`hv-toggle inline-block w-[12rem] h-[4rem] mt-[2rem] text-primary bg-transparent border-4 border-primary cursor-pointer rounded-md text-lg ${error ? "err_view": ""}`} onClick={handleObserver}>{loading ? 
+                <button aria-label="load more articles" className={`hv-toggle inline-block w-[12rem] h-[4rem] mt-[2rem] text-primary bg-transparent border-4 border-primary cursor-pointer rounded-md text-lg ${error ? "err_view": ""}`} onClick={handleClick}>{loading ? 
                 (
                   <Preloader />
                 ): error ? (
