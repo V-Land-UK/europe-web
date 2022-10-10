@@ -30,14 +30,23 @@ const GlobalProvider = ({ children }) => {
       axios
         .get(`${API}/articles?${filters}`)
         .then(({ data }) => {
-          setArticles(data?.data);
-          // console.log(res);
+          const visible_articles = data?.data.filter((article)=>{
+            
+            const article_date = new Date(article?.attributes?.PublishDate);
+            const curr_date = new Date();
+
+            return article_date <= curr_date;
+          });
+          
+          setArticles(visible_articles);
+          //console.log(res);
         })
         .catch((err) => {
           setStatus((prev) => {
             return { ...prev, error: true };
           });
         });
+
     }
 
     if (Categories.length < 1) {

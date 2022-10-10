@@ -7,9 +7,10 @@ module.exports = {
     "./defaults/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    screens: {
-      xxs: "280px",
-      xs: "321px",
+    screens:{
+      "xxs": "280px",
+      "xs": "321px",
+     
       ...defaultTheme.screens,
     },
     extend: {
@@ -18,5 +19,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [],
 };

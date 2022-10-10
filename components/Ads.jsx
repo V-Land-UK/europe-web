@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Ads = ({ ad }) => {
   return (
@@ -18,9 +19,11 @@ const Ads = ({ ad }) => {
           href={ad?.attributes?.url}
           target="_blank"
           rel="noreferrer"
-          className="h-full w-full"
+          className="relative h-full w-full"
         >
-          <img
+          <Image
+            blurDataURL="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8e+rUUwAIFQNIlnFEqgAAAABJRU5ErkJggg=="
+            placeholder="blur"
             src={
               ad?.attributes?.image?.data?.attributes?.formats?.medium?.url ||
               ad?.attributes?.image?.data?.attributes?.formats?.large?.url ||
@@ -28,7 +31,9 @@ const Ads = ({ ad }) => {
               ad?.attributes?.image?.data?.attributes?.formats?.thumbnail?.url
             }
             alt={ad?.attributes?.name || "Advertisement"}
-            className="w-full min-w-full max-h-full h-full object-cover"
+            layout='fill'
+            objectFit="cover"
+            
           />
         </a>
       </motion.div>

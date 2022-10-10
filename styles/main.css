@@ -75,9 +75,14 @@ a {
   /* gap: 0.5rem; */
 }
 .article-body {
-  gap: 0.3rem;
+  gap: .2rem;
   font-family: "Poppins", Arial, Helvetica, sans-serif, "Segoe UI", Tahoma !important;
   cursor: pointer;
+  
+}
+
+.aCard__body{
+  height: calc(50% + .625rem);
 }
 
 .article-desc {
@@ -227,6 +232,8 @@ ul {
 .hv-toggle:hover div .load_animation_item {
   background-color: #000000;
 }
+
+
 
 @keyframes preloader {
   0%,
@@ -390,6 +397,7 @@ ul {
 .tag {
   font-family: "Poppins", Arial, Helvetica, sans-serif !important;
   font-weight: 900 !important;
+  z-index: 1;
 }
 .tag:hover {
   transform: translateY(-0.2rem);
@@ -432,9 +440,7 @@ ul {
   background-color: var(--primary);
 }
 
-.card_large div .article-body .article-title,
-.card_large div .article-body .article-title-green {
-}
+
 
 @-moz-document url-prefix() {
   .article-preview::first-letter {
@@ -478,11 +484,16 @@ ul {
   }
 }
 
+
+
+
+
 @media screen and (max-width: 1024px) {
   .cardList_ctnr {
     grid-template-columns: repeat(auto-fit, 15.125rem);
     gap: 0.625rem;
     grid-auto-rows: 15.125rem;
+    
   }
   .article-desc {
     font-size: 10px;
@@ -523,11 +534,19 @@ ul {
     }
   }
 }
+
+
+
+
 @media screen and (max-width: 768px) {
   .cardList_ctnr {
-    grid-template-columns: repeat(auto-fit, 10.8215rem);
-    gap: 0.25rem;
-    grid-auto-rows: 10.8215rem;
+    grid-template-columns: repeat(auto-fit, 13.8215rem);
+    gap: 0.625rem;
+    grid-auto-rows: 13.8215rem;
+    
+  }
+  .aCard__body{
+    height: calc(50% + 0.625rem) !important;
   }
 
   .article-title,
@@ -543,10 +562,7 @@ ul {
     font-weight: 600;
   }
 
-  .card_large div.article-body .article-title,
-  .card_large div.article-body .article-title-green {
-    max-height: fit-content;
-  }
+
   .underline__span {
     background-size: 0% 0.3rem !important;
   }
@@ -561,13 +577,17 @@ ul {
   }
   @supports not (aspect-ratio: 1/1) {
     .card_medium .img-ctnr {
-      height: 10.8215rem;
+      height: 13.8215rem;
     }
     .card_large .img-ctnr {
-      height: calc(2 * 10.8215rem);
+      height: calc(2 * 13.8215rem);
     }
   }
 }
+
+
+
+
 
 @media screen and (max-width: 480px) {
   .article-desc-home {
@@ -590,9 +610,9 @@ ul {
     gap: 0.4rem;
     /* padding: 0.3rem 0.4rem 0.3rem 0.4rem; */
     border-radius: 2rem;
-    margin-top: auto !important;
-    /* margin-bottom: 0.5rem;
-  margin-inline: 0.4rem; */
+    
+    margin-bottom: 0.5rem;
+  /*margin-inline: 0.4rem; */
   }
 
   .article-author-home {
@@ -603,7 +623,7 @@ ul {
     gap: 0.4rem;
     padding: 0.3rem 0.4rem 0.3rem 0.4rem;
     border-radius: 2rem;
-    margin-top: auto !important;
+    
     /* margin-bottom: 0.5rem;
   margin-inline: 0.4rem; */
   }
@@ -633,36 +653,27 @@ ul {
     font-family: "Poppins", Arial, Helvetica, sans-serif !important;
     color: rgb(0, 0, 0);
   }
-  .article-title,
-  .article-title-green {
-    font-weight: 900 !important;
-    max-height: fit-content;
-    line-height: 1.23 !important;
-  }
+ 
   .article-title.rec__card {
     -webkit-line-clamp: 6;
   }
-  .underline__span {
-    background-size: 0% 0.23rem !important;
-  }
-  .article-title:hover .underline__span,
-  .article-title:focus .underline__span {
-    background-size: 100% 0.23rem !important;
-  }
+ 
+ 
   .article-title-green:hover .underline__span,
   .article-title-green:focus .underline__span {
     background-size: 100% 0.23rem !important;
   }
-}
-
-@media screen and (max-width: 380px) {
   .cardList_ctnr {
     grid-template-columns: repeat(auto-fit, 10.1215rem);
     gap: 0.45rem;
     grid-auto-rows: 10.1215rem;
   }
+  .aCard__body{
+    height: calc(50% + 0.45rem) !important;
+  }
   .article-title,
   .article-title-green {
+    font-size: 1rem !important;
     font-weight: 900 !important;
     max-height: fit-content !important;
     line-height: 1.23 !important;
@@ -692,11 +703,21 @@ ul {
   }
 }
 
+
 @media screen and (max-width: 320px) {
   .cardList_ctnr {
     grid-template-columns: repeat(auto-fit, 8.1215rem);
     gap: 0.45rem;
     grid-auto-rows: 8.1215rem;
+  }
+  .aCard__body{
+    
+    height: calc(50% + 0.45rem);
+   
+  }
+  .article-title,
+  .article-title-green {
+    font-size: .8rem !important;
   }
   .author_img-ctnr {
     width: 20px;
