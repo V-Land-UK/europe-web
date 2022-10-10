@@ -658,11 +658,7 @@ ul {
     -webkit-line-clamp: 6;
   }
  
- 
-  .article-title-green:hover .underline__span,
-  .article-title-green:focus .underline__span {
-    background-size: 100% 0.23rem !important;
-  }
+
   .cardList_ctnr {
     grid-template-columns: repeat(auto-fit, 10.1215rem);
     gap: 0.45rem;
@@ -680,16 +676,16 @@ ul {
     padding-bottom: 0.17rem;
   }
   .underline__span {
-    background-size: 0% 0.18rem !important;
+    background-size: 0% 0.23rem !important;
   }
 
   .article-title-green:hover .underline__span,
   .article-title-green:focus .underline__span {
-    background-size: 100% 0.18rem !important;
+    background-size: 100% 0.23rem !important;
   }
   .article-title:hover .underline__span,
   .article-title:focus .underline__span {
-    background-size: 100% 0.18rem !important;
+    background-size: 100% 0.23rem !important;
   }
   @supports not (aspect-ratio: 1/1) {
     .card_medium .img-ctnr {
