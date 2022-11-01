@@ -1,5 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { useContext, useEffect, useState, useRef, useCallback, Fragment } from "react";
+import {
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  Fragment,
+} from "react";
 import Layout from "../defaults/Layout";
 import ArticleCard from "../components/ArticleCard";
 import Pagination from "../components/Pagination";
@@ -17,77 +24,66 @@ import axios from "axios";
 const qs = require("qs");
 
 export default function Home({ articles, meta, ads }) {
-  
-  
-
   const page = useRef(meta.pagination.page);
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [hasMore,setHasMore] = useState(meta.pagination.pageCount > meta.pagination.page);
+  const [hasMore, setHasMore] = useState(
+    meta.pagination.pageCount > meta.pagination.page
+  );
   const [queriesSent, setQueriesSent] = useState(0);
-  
-  
+
   const ref = useRef();
-  
 
+  const handleClick = useCallback(async () => {
+    if (loading || error) return;
 
-  
-  const handleClick = useCallback(async()=>{
-    if(loading || error)return;
-    
     page.current += 1;
-    const filters = qs.stringify({
-      populate:"*",
-      pagination:{
-        page: page.current,
-        pageSize: PAGINATION_LIMIT,
+    const filters = qs.stringify(
+      {
+        populate: "*",
+        pagination: {
+          page: page.current,
+          pageSize: PAGINATION_LIMIT,
+        },
+        sort: ["PublishDate:desc"],
       },
-      sort: ['PublishDate:desc']
-    }, {encodeValuesOnly:true} );
+      { encodeValuesOnly: true }
+    );
     setLoading(true);
 
     const fetchedArticles = await axios
-                                    .get(`${API}/articles?${filters}`)
-                                    .then((data)=>{
-                                      return data?.data;
-                                    })
-                                    .catch((err)=>{
-                                      setLoading(false);
-                                      setError(err);
-                                      return null;
-                                    });
-    
-    if(fetchedArticles){
+      .get(`${API}/articles?${filters}`)
+      .then((data) => {
+        return data?.data;
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err);
+        return null;
+      });
+
+    if (fetchedArticles) {
       setHasMore(meta.pagination.pageCount > page.current);
       articles.push(...fetchedArticles.data);
-      setQueriesSent(prev => prev + 1);
+      setQueriesSent((prev) => prev + 1);
       setLoading(false);
-
     }
   });
 
+  useEffect(() => {
+    // if (!hasMore) {
+    //   ref.current.classList.remove("hasMore");
+    // }
+  }, [queriesSent]);
 
+  //ads should be placed in specific places rather than every 15; some info needed in the api
+  //to tell us sizing/position ?
 
-  useEffect(()=>{
-    
-    
-    if(!hasMore){
-      ref.current.classList.remove("hasMore");
-    }
-  }, [queriesSent])
-
-  
-
- //ads should be placed in specific places rather than every 15; some info needed in the api
- //to tell us sizing/position ?
-
- //random
+  //random
 
   //let adIndex = 0;
-  const articlesBeforeAd  = 5;
+  const articlesBeforeAd = 5;
   //let articlesBeforeAd = Math.floor(Math.random()*(articles.length - 10) + 10);
-
-
 
   const checkAds = (index) => {
     /*if(ads[adIndex] && (index + 1) % articlesBeforeAd === 0){
@@ -99,7 +95,6 @@ export default function Home({ articles, meta, ads }) {
     else{
       return false;
     }*/
-
 
     if (ads[(index + 1) / articlesBeforeAd - 1] !== undefined) {
       return true;
@@ -118,45 +113,44 @@ export default function Home({ articles, meta, ads }) {
     <Layout>
       {articles.length > 0 ? (
         <>
-          
           {/* <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-[10px] lg:gap-5 lg:gap-y-6 "> */}
           <div className="cardList_ctnr relative hasMore" ref={ref}>
             {articles?.map((article, index) => (
-            
-                  <Fragment key={index}>
-                    <ArticleCard article={article} index={index}/>
-                    {/* Show Ads */}
-                    {ads.length > 0 && checkAds(index) && (
-                      
-                      <Ads ad={ads[getAdsIndex(index)]} />
-                      
-                    )}
-                  </Fragment>
+              <Fragment key={index}>
+                <ArticleCard article={article} index={index} />
+                {/* Show Ads */}
+                {ads.length > 0 && checkAds(index) && (
+                  <Ads ad={ads[getAdsIndex(index)]} />
+                )}
+              </Fragment>
             ))}
-        
-            
-            
           </div>
           {hasMore && (
             <div className="block w-[100%] h-[8rem] text-center bg-gradient-to-t from-white">
-                <button aria-label="load more articles" className={`hv-toggle inline-block w-[12rem] h-[4rem] mt-[2rem] text-primary bg-transparent border-4 border-primary cursor-pointer rounded-md text-lg ${error ? "err_view": ""}`} onClick={handleClick}>{loading ? 
-                (
+              <button
+                aria-label="load more articles"
+                className={`hv-toggle inline-block w-[12rem] h-[4rem] mt-[2rem] text-primary bg-transparent border-4 border-primary cursor-pointer rounded-md text-lg ${
+                  error ? "err_view" : ""
+                }`}
+                onClick={handleClick}
+              >
+                {loading ? (
                   <Preloader />
-                ): error ? (
+                ) : error ? (
                   <div className="inline-block align-left">
-                    <FontAwesomeIcon icon={faExclamationTriangle} className="inline-block text-white w-[1rem] mr-[.6rem]"/>
+                    <FontAwesomeIcon
+                      icon={faExclamationTriangle}
+                      className="inline-block text-white w-[1rem] mr-[.6rem]"
+                    />
                     <p className="inline-block text-white">Error</p>
                   </div>
-                ) : "Read More"}</button>
+                ) : (
+                  "Read More"
+                )}
+              </button>
             </div>
           )}
-        
-          
-          
-          
         </>
-
-        
       ) : (
         <div className="py-[10vh] lg:py-[15vh] text-center text-primary text-3xl lg:text-4xl font-semibold px-6">
           No Articles Yet.
