@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
     //     <Component {...pageProps} />
     //   </GlobalProvider>
     // </ChakraProvider>
-    <p>Hello world</p>
+    <p>Hello worlds</p>
   );
 }
 
