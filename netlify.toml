@@ -1,2 +1,2 @@
 [build]
-    publish = "/opt/build/repo"
+    publish = ".next"
