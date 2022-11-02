@@ -15,21 +15,22 @@ Router.events.on("routeChangeComplete", nProgress.done);
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <GlobalProvider>
-        <Script
-          id="Adsense-id"
-          async
-          onError={(err) => {
-            console.error("Script failed to load", err);
-          }}
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9166716457553506"
-          crossorigin="anonymous"
-        ></Script>
-        <Component {...pageProps} />
-      </GlobalProvider>
-    </ChakraProvider>
+    // <ChakraProvider>
+    //   <GlobalProvider>
+    //     <Script
+    //       id="Adsense-id"
+    //       async
+    //       onError={(err) => {
+    //         console.error("Script failed to load", err);
+    //       }}
+    //       strategy="afterInteractive"
+    //       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9166716457553506"
+    //       crossorigin="anonymous"
+    //     ></Script>
+    //     <Component {...pageProps} />
+    //   </GlobalProvider>
+    // </ChakraProvider>
+    <p>hello world</p>
   );
 }
 
