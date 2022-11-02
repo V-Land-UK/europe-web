@@ -19,23 +19,23 @@ const About = ({ about }) => {
           About V-Land
         </h1>
         <div className="text-[16px] pt-3 lg:text-lg text-black tracking-wide leading-relaxed poppins my-2 whitespace-pre-line about">
-          {parse(about)}
+          {/* {parse(about)} */}
         </div>
       </main>
     </Layout>
   );
 };
 
-export async function getStaticProps() {
-  const response = await fetch(`${API}/about`);
-  const data = await response.json();
+// export async function getStaticProps() {
+//   const response = await fetch(`${API}/about`);
+//   const data = await response.json();
 
-  return {
-    props: {
-      about: data?.data?.attributes?.about,
-    },
-    revalidate: 10,
-  };
-}
+//   return {
+//     props: {
+//       about: data?.data?.attributes?.about,
+//     },
+//     revalidate: 10,
+//   };
+// }
 
 export default About;
