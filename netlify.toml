@@ -1,2 +1,8 @@
 [build]
     publish = ".next"
+
+[[redirects]]
+    from = "https://www.v-landeurope.com/*"
+    to = "https://www.v-landuk.com/"
+    status = 301
+    force = true
